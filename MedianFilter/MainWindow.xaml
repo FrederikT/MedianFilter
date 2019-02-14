@@ -1,0 +1,39 @@
+﻿<Window x:Class="MedianFilter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MedianFilter"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <local:ValueConverter x:Key="valueConverter"></local:ValueConverter>
+    </Window.Resources>
+    <Window.DataContext>
+        <local:FilterVM/>
+    </Window.DataContext>
+    <Grid>
+        <Button x:Name="load" Content="load file" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="75" Command="{Binding LoadButtonCommand}"/>
+        <Button x:Name="save" Content="save file" HorizontalAlignment="Left" Margin="10,79,0,0" VerticalAlignment="Top" Width="75" Command="{Binding SaveButtonCommand}"/>
+        <RadioButton x:Name="chk1px" Content="1px" HorizontalAlignment="Left" Margin="10,119,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="chk3px" Content="3px" HorizontalAlignment="Left" Margin="10,139,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="chk5px" Content="5px" HorizontalAlignment="Left" Margin="10,159,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="chk7px" Content="7px" HorizontalAlignment="Left" Margin="10,179,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="chk9px" Content="9px" HorizontalAlignment="Left" Margin="10,199,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="chk10px" Content="10px" HorizontalAlignment="Left" Margin="10,219,0,0" VerticalAlignment="Top"/>
+        <Image x:Name="image_original" Source="{Binding OriginalImageSource}" HorizontalAlignment="Left" Height="140" Margin="113,79,0,0" VerticalAlignment="Top" Width="141" OpacityMask="#FF0C0A0A"/>
+        <Image x:Name="image_filtered" Source="{Binding FilteredImageSource}" HorizontalAlignment="Left" Height="140" Margin="339,79,0,0" VerticalAlignment="Top" Width="141"/>
+        <Button x:Name="convert" IsEnabled="{Binding CanClose}" Content="convert" HorizontalAlignment="Left" Margin="259,139,0,0" VerticalAlignment="Top" Width="75"  Command="{Binding ConvertButtonCommand}">
+            <Button.CommandParameter>
+                <MultiBinding Converter="{StaticResource valueConverter}">
+                    <Binding Path="IsChecked" ElementName="chk1px"/>
+                    <Binding Path="IsChecked" ElementName="chk3px"/>
+                    <Binding Path="IsChecked" ElementName="chk5px"/>
+                    <Binding Path="IsChecked" ElementName="chk7px"/>
+                    <Binding Path="IsChecked" ElementName="chk9px"/>
+                    <Binding Path="IsChecked" ElementName="chk10px"/>
+                </MultiBinding>
+            </Button.CommandParameter>
+        </Button>
+    </Grid>
+</Window>
