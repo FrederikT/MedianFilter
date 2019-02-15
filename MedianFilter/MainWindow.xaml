@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MedianFilter"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="NekoPix" Height="350" Width="525"
+        Icon="H:\_Faecher\PMC\MedianFilter\MedianFilter\logo.ico"
+        >
     <Window.Resources>
         <local:ValueConverter x:Key="valueConverter"></local:ValueConverter>
     </Window.Resources>
