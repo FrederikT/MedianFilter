@@ -15,18 +15,27 @@
     <Window.DataContext>
         <local:FilterVM/>
     </Window.DataContext>
-    <Grid Background="#9999ff">
-        <Button x:Name="load" Content="load file" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="75" Command="{Binding LoadButtonCommand}"  Background="#ff66ff"/>
-        <Button x:Name="save" Content="save file" HorizontalAlignment="Left" Margin="10,79,0,0" VerticalAlignment="Top" Width="75" Command="{Binding SaveButtonCommand}"  Background="#ff66ff"/>
-        <RadioButton x:Name="chk1px" Content="1px" HorizontalAlignment="Left" Margin="10,119,0,0" VerticalAlignment="Top" Background="#ff66ff"/>
-        <RadioButton x:Name="chk3px" Content="3px" HorizontalAlignment="Left" Margin="10,139,0,0" VerticalAlignment="Top" Background="#ff66ff"/>
-        <RadioButton x:Name="chk5px" Content="5px" HorizontalAlignment="Left" Margin="10,159,0,0" VerticalAlignment="Top" Background="#ff66ff"/>
-        <RadioButton x:Name="chk7px" Content="7px" HorizontalAlignment="Left" Margin="10,179,0,0" VerticalAlignment="Top" Background="#ff66ff"/>
-        <RadioButton x:Name="chk9px" Content="9px" HorizontalAlignment="Left" Margin="10,199,0,0" VerticalAlignment="Top" Background="#ff66ff"/>
-        <RadioButton x:Name="chk10px" Content="10px" HorizontalAlignment="Left" Margin="10,219,0,0" VerticalAlignment="Top" Background="#ff66ff"/>
-        <Image x:Name="image_original" Source="{Binding OriginalImageSource}" HorizontalAlignment="Left" Height="140" Margin="113,79,0,0" VerticalAlignment="Top" Width="141" OpacityMask="#FF0C0A0A"/>
-        <Image x:Name="image_filtered" Source="{Binding FilteredImageSource}" HorizontalAlignment="Left" Height="140" Margin="339,79,0,0" VerticalAlignment="Top" Width="141"/>
-        <Button x:Name="convert" IsEnabled="{Binding CanClose}" Content="convert" HorizontalAlignment="Left" Margin="259,139,0,0" VerticalAlignment="Top" Width="75"  Command="{Binding ConvertButtonCommand}"  Background="#ff0066">
+    <Grid Background="#9999ff" Margin="0,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+         </Grid.ColumnDefinitions>
+        <Button  Grid.Row="0" Grid.Column="0" x:Name="load" Content="load file" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="75" Command="{Binding LoadButtonCommand}"  Background="#ff66ff"/>
+        <Button Grid.Row="0" Grid.Column="0" x:Name="save" Content="save file" HorizontalAlignment="Left" Margin="10,79,0,0" VerticalAlignment="Top" Width="75" Command="{Binding SaveButtonCommand}"  Background="#ff66ff"/>
+        <RadioButton Grid.Row="0" Grid.Column="0" x:Name="chk1px" Content="1px" HorizontalAlignment="Left" Margin="10,119,0,0" VerticalAlignment="Top" Background="#ff66ff"/>
+        <RadioButton Grid.Row="0" Grid.Column="0" x:Name="chk3px" Content="3px" HorizontalAlignment="Left" Margin="10,139,0,0" VerticalAlignment="Top" Background="#ff66ff"/>
+        <RadioButton Grid.Row="0" Grid.Column="0" x:Name="chk5px" Content="5px" HorizontalAlignment="Left" Margin="10,159,0,0" VerticalAlignment="Top" Background="#ff66ff"/>
+        <RadioButton Grid.Row="0" Grid.Column="0" x:Name="chk7px" Content="7px" HorizontalAlignment="Left" Margin="10,179,0,0" VerticalAlignment="Top" Background="#ff66ff"/>
+        <RadioButton Grid.Row="0" Grid.Column="0" x:Name="chk9px" Content="9px" HorizontalAlignment="Left" Margin="10,199,0,0" VerticalAlignment="Top" Background="#ff66ff"/>
+        <RadioButton Grid.Row="0" Grid.Column="0" x:Name="chk10px" Content="10px" HorizontalAlignment="Left" Margin="10,219,0,0" VerticalAlignment="Top" Background="#ff66ff"/>
+        <Image Grid.Row="0" Grid.Column="1" x:Name="image_original" Source="{Binding OriginalImageSource}" HorizontalAlignment="Left" Height="140" Margin="113,79,0,0" VerticalAlignment="Top" Width="141" OpacityMask="#FF0C0A0A"/>
+        <Image Grid.Row="0" Grid.Column="3" x:Name="image_filtered" Source="{Binding FilteredImageSource}" HorizontalAlignment="Left" Height="140" Margin="339,79,0,0" VerticalAlignment="Top" Width="141"/>
+        <Button Grid.Row="0" Grid.Column="2" x:Name="convert" IsEnabled="{Binding CanClose}" Content="convert" HorizontalAlignment="Left" Margin="259,139,0,0" VerticalAlignment="Top" Width="75"  Command="{Binding ConvertButtonCommand}"  Background="#ff0066">
             <Button.CommandParameter>
                 <MultiBinding Converter="{StaticResource valueConverter}">
                     <Binding Path="IsChecked" ElementName="chk1px"/>
