@@ -116,6 +116,7 @@ namespace MedianFilter
             var px = getPx((bool)paramList[0], (bool)paramList[1], (bool)paramList[2], (bool)paramList[3], (bool)paramList[4]); //die radiobutton values werden an getPx übergeben. 
             filteredImage = filter.filterPicture(px, originalImage); // Medianfilter wird auf bitmap angewendet
             FilteredImageSource = BitmapConverter.ImageSourceForBitmap(FilteredImage); // in ImageSource umwandeln. (Für Oberfläche)
+            MessageBox.Show("Finished Converting");
 
         }
 

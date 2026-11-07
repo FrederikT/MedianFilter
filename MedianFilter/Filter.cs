@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
-using System.Windows;
 
 namespace MedianFilter
 {
@@ -115,7 +114,6 @@ namespace MedianFilter
 
             resultBitmap.UnlockBits(resultData);
 
-            MessageBox.Show("Finished Converting");
             return resultBitmap;
         }
     }
