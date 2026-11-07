@@ -91,7 +91,7 @@ namespace MedianFilter
                     neighbourPixels.Sort();
 
                     middlePixel = BitConverter.GetBytes(
-                                       neighbourPixels[filterOffset]);
+                                       neighbourPixels[neighbourPixels.Count / 2]);
 
                     resultBuffer[byteOffset] = middlePixel[0];
                     resultBuffer[byteOffset + 1] = middlePixel[1];
