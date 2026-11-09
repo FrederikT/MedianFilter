@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
-using System.Windows;
 
 namespace MedianFilter
 {
@@ -92,7 +91,7 @@ namespace MedianFilter
                     neighbourPixels.Sort();
 
                     middlePixel = BitConverter.GetBytes(
-                                       neighbourPixels[filterOffset]);
+                                       neighbourPixels[neighbourPixels.Count / 2]);
 
                     resultBuffer[byteOffset] = middlePixel[0];
                     resultBuffer[byteOffset + 1] = middlePixel[1];
@@ -115,7 +114,6 @@ namespace MedianFilter
 
             resultBitmap.UnlockBits(resultData);
 
-            MessageBox.Show("Finished Converting");
             return resultBitmap;
         }
     }
